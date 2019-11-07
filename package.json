@@ -1,12 +1,17 @@
 {
   "name": "encryption-loader",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "test": "jest",
+    "build": "webpack",
     "patch": "npm version patch && git push --follow-tags && npm publish",
     "minor": "npm version minor && git push --follow-tags && npm publish",
     "version": "npm version major && git push --follow-tags && npm publish"
+  },
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "node"
   },
   "keywords": [
     "Confusion",
@@ -33,11 +38,18 @@
     "@babel/preset-env": "^7.7.1",
     "@babel/runtime": "7.0.0-beta.55",
     "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
+    "encryption-loader": "^0.0.1",
     "jest": "^24.9.0",
     "memory-fs": "^0.5.0",
     "webpack": "^4.41.2"
   },
   "dependencies": {
+    "ast-types": "^0.13.2",
+    "escodegen": "^1.12.0",
+    "esprima": "^4.0.1",
+    "estraverse": "^4.3.0",
+    "gulp-util": "^3.0.8",
     "loader-utils": "^1.2.3",
     "schema-utils": "^2.5.0"
   }

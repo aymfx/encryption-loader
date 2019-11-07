@@ -4,10 +4,12 @@ describe('project start', () => {
     test('loader', () => {
         expect(loader).toBeInstanceOf(Function);
     })
-    test('console.log(1212)', async () => {
+
+    test(`'use strict';var _x49891=['\\x6c\\x6f\\x67'];a=12;console[_x49891[0]](a);`, async () => {
         const stats = await compiler('./instance/index.js');
         const output = stats.toJson().modules[0].source;
-        expect(output).toBe(`console.log(1212)`);
+        console.log(output)
+        expect(output).toBe(`'use strict';var _x49891=['\\x6c\\x6f\\x67'];a=12;console[_x49891[0]](a);`);
     });
 })
 

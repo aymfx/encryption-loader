@@ -1,15 +1,10 @@
-import { getOptions } from 'loader-utils';
-import validateOptions from 'schema-utils';
-const schema = {
-    type: 'object',
-    properties: {
-        test: {
-            type: 'string'
-        }
-    }
-}
-export default function loader(code) {
+const { getOptions } = require('loader-utils');
+const {
+    strToHex
+} = require('./libs/index.js')
+
+module.exports = function loader(code) {
     const options = getOptions(this);
-    validateOptions(schema, options, 'Example Loader');
+    code = strToHex(code)
     return code;
 };
